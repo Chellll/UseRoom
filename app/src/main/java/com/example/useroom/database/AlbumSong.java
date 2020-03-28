@@ -3,9 +3,11 @@ package com.example.useroom.database;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
-@Entity(foreignKeys = {
+@Entity(tableName = "albumsong",
+        foreignKeys = {
         @ForeignKey(entity = Album.class, parentColumns = "id", childColumns = "album_id"),
         @ForeignKey(entity = Song.class, parentColumns = "id", childColumns = "song_id")
 })

@@ -1,7 +1,9 @@
 package com.example.useroom.database;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 @Entity
@@ -17,14 +19,18 @@ public class Album {
     @ColumnInfo(name = "release")
     private String mReleaseDate;
 
+
+    @Ignore
+    public Album() {
+        mId = 0;
+        mName = "qwe";
+        mReleaseDate = "qwe";
+    }
+
     public Album(int id, String name, String releaseDate) {
         mId = id;
         mName = name;
         mReleaseDate = releaseDate;
-    }
-
-    public Album() {
-
     }
 
     public int getId() {
@@ -49,5 +55,13 @@ public class Album {
 
     public void setReleaseDate(String releaseDate) {
         mReleaseDate = releaseDate;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return "Albums[" + " mId=" + mId +
+                ", mName='" + mName +
+                "', mReleaseDate = '" + mReleaseDate + '}';
     }
 }

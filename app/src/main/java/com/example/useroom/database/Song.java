@@ -2,6 +2,7 @@ package com.example.useroom.database;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 @Entity
@@ -17,6 +18,7 @@ public class Song {
     @ColumnInfo(name = "duration")
     private String mDuration;
 
+    @Ignore
     public Song() {
     }
 
